@@ -1,0 +1,273 @@
+// Variables
+$color-bg: #0b0d13;
+$color-white: #ffffff;
+$color-text-primary: rgba(255, 255, 255, 0.6);
+$color-text-secondary: rgba(255, 255, 255, 0.5);
+$color-text-link: rgba(255, 255, 255, 0.7);
+$color-border: rgba(255, 255, 255, 0.1);
+
+$breakpoint-mobile: 390px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-max: 1440px;
+
+// Mixins
+@mixin mobile {
+  @media (max-width: #{$breakpoint-desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+// Footer
+.footer {
+  background-color: $color-bg;
+  color: $color-white;
+  border-top: 1px solid $color-border;
+
+  // Desktop Layout
+  &__desktop {
+    display: none;
+
+    @include desktop {
+      display: block;
+    }
+  }
+
+  &__container {
+    max-width: $breakpoint-max;
+    margin: 0 auto;
+    padding: 32px 24px;
+  }
+
+  // Navigation
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 24px;
+  }
+
+  &__nav-link {
+    color: $color-text-link;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-white;
+    }
+  }
+
+  // Links Section
+  &__links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    margin-top: 12px;
+  }
+
+  &__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__social-icon {
+    width: 32px;
+    height: 32px;
+    display: block;
+  }
+
+  &__app-link {
+    display: flex;
+    align-items: center;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__app-image {
+    height: 40px;
+    display: block;
+  }
+
+  &__certificate-link {
+    display: flex;
+    align-items: center;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__certificate-image {
+    height: 44px;
+    display: block;
+  }
+
+  // Footer Info
+  &__info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+    margin-top: 28px;
+  }
+
+  &__text {
+    color: $color-text-primary;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  &__copyright {
+    color: $color-text-secondary;
+    font-size: 12px;
+    margin: 12px 0 0;
+  }
+
+  // Mobile Layout
+  &__mobile {
+    display: block;
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__mobile-container {
+    padding: 24px 16px;
+  }
+
+  // Mobile Navigation
+  &__mobile-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px 16px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  &__mobile-nav-link {
+    color: $color-text-link;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-white;
+    }
+  }
+
+  // Mobile Social
+  &__mobile-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  &__mobile-social-link {
+    display: flex;
+    align-items: center;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__mobile-social-icon {
+    width: 40px;
+    height: 40px;
+    display: block;
+  }
+
+  // Mobile Apps
+  &__mobile-apps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  &__mobile-app-link {
+    display: flex;
+    align-items: center;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__mobile-app-image {
+    height: 40px;
+    display: block;
+  }
+
+  // Mobile Certificate
+  &__mobile-certificate {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+
+  &__mobile-certificate-link {
+    display: flex;
+    align-items: center;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__mobile-certificate-image {
+    height: 44px;
+    display: block;
+  }
+
+  // Mobile Info
+  &__mobile-info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  &__mobile-text {
+    color: $color-text-primary;
+    font-size: 12px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  &__mobile-copyright {
+    color: $color-text-secondary;
+    font-size: 10px;
+    margin: 16px 0 0;
+  }
+}

@@ -1,0 +1,163 @@
+/* ===== FESTIVAL PAGE ===== */
+
+.festival-banner {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* LIST */
+.film-list {
+  width: 94%;
+  margin: 80px auto;      
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background: #0f1117;
+  padding: 24px 0;
+}
+
+.film-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 24px;
+}
+
+.film-row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;  /* ✅ ảnh + nội dung thẳng */
+}
+
+/* ✅ LINK bọc ảnh: không bị inline lệch */
+.film-row a {
+  display: block;
+}
+
+/* ✅ THUMB: luôn cùng kích thước */
+.film-thumb {
+  width: 140px;
+  height: 110px;
+  flex: 0 0 140px;          /* ✅ không co giãn theo flex */
+  display: block;           /* ✅ bỏ khoảng hở inline */
+  object-fit: cover;
+  border-radius: 8px;
+  background: #111827;      /* fallback khi loading */
+}
+
+.film-content {
+  flex: 1;
+  min-width: 0;             /* ✅ để ellipsis hoạt động đúng */
+}
+
+.film-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  width: 100%;
+}
+
+.film-title-pc {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  text-transform: uppercase;
+  line-height: 1.25;
+}
+
+.film-time {
+  font-size: 14px;
+  color: #9ca3af;
+  white-space: nowrap;
+}
+
+.film-desc {
+  margin-top: 8px;
+  color: #cbd5e1;
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 100%;
+
+  /* clamp 3 dòng */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.film-title-mobile {
+  display: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1023px) {
+  .film-list {
+    width: 94%;
+    margin: 30px auto;
+    padding: 16px 0;
+  }
+
+  .film-title-mobile {
+    display: block;
+  }
+
+  .film-title-pc {
+    display: none;
+  }
+
+  .film-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 16px;
+  }
+
+  /* ✅ mobile vẫn giữ đúng size */
+  .film-thumb {
+    width: 140px;
+    height: 110px;
+  }
+
+  .film-header {
+    justify-content: flex-start;
+  }
+}
+
+/* ===== PAGINATION ===== */
+.pagination {
+  width: 94%;
+  margin: 40px auto 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn-outline,
+.btn-primary {
+  padding: 9px 20px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid #334155;
+  background: transparent;
+  color: #e2e8f0;
+  transition: 0.2s;
+}
+
+.btn-outline:hover {
+  background: #1e293b;
+}
+
+.btn-primary {
+  background: #1e293b;
+  border-color: #475569;
+}
+
+.btn-primary:hover {
+  background: #334155;
+}

@@ -1,0 +1,518 @@
+/* =========================
+   TicketPriceManager.module.scss
+   ========================= */
+
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ===== Header ===== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+.titleIcon {
+  width: 24px;
+  height: 24px;
+  color: #2563eb;
+}
+
+.addBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: #2563eb;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25);
+  transition: transform 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
+
+  &:hover {
+    background: #1d4ed8;
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.btnIcon {
+  width: 16px;
+  height: 16px;
+}
+
+/* ===== Search ===== */
+.searchWrap {
+  position: relative;
+}
+
+.searchIcon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 16px 10px 40px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  transition: box-shadow 0.12s ease, border-color 0.12s ease;
+
+  &:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+  }
+}
+
+/* ===== Table ===== */
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.thead {
+  background: #f9fafb;
+  color: #4b5563;
+  font-size: 14px;
+}
+
+.th,
+.td {
+  padding: 12px 24px;
+  text-align: left;
+}
+
+.tbody {
+  border-top: 1px solid #e5e7eb;
+}
+
+.tr {
+  border-top: 1px solid #e5e7eb;
+  transition: background 0.12s ease;
+
+  &:hover {
+    background: #f9fafb;
+  }
+}
+
+/* Column widths */
+.thSeat {
+  width: 22%;
+}
+.thMovie {
+  width: 12%;
+}
+.thDay {
+  width: 18%;
+}
+.thTime {
+  width: 18%;
+}
+.thPrice {
+  width: 15%;
+}
+.thActions {
+  width: 15%;
+  text-align: center;
+}
+
+.tdSeat {
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tdMovie {
+  white-space: nowrap;
+}
+
+.tdDay,
+.tdTime {
+  color: #374151;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tdPrice {
+  font-weight: 800;
+  color: #111827;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.tdActions {
+  text-align: center;
+}
+
+/* Badge 2D/3D */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.badge2d {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.badge3d {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
+/* Action buttons */
+.actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.iconBtn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+.editBtn {
+  background: #fef3c7;
+  color: #a16207;
+
+  &:hover {
+    background: #fde68a;
+  }
+}
+
+.deleteBtn {
+  background: #fee2e2;
+  color: #dc2626;
+
+  &:hover {
+    background: #fecaca;
+  }
+}
+
+.empty {
+  text-align: center;
+  padding: 24px;
+  color: #6b7280;
+}
+
+/* ===== Pagination ===== */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.pageInfo {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.pager {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagerBtn,
+.pageBtn {
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.12s ease, transform 0.12s ease;
+
+  &:hover {
+    background: #f3f4f6;
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.active {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+
+  &:hover {
+    background: #1d4ed8;
+  }
+}
+
+/* ===== Modal (open animation) ===== */
+@keyframes overlayIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 16px;
+  animation: overlayIn 160ms ease-out both;
+}
+
+.modal {
+  width: 420px;
+  max-width: 100%;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  animation: modalIn 180ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  will-change: transform, opacity;
+  transform-origin: top center;
+}
+
+.modalTitle {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.field {
+}
+
+.label {
+  font-size: 13px;
+  color: #4b5563;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  transition: box-shadow 0.12s ease, border-color 0.12s ease;
+
+  &:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+  }
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 6px;
+}
+
+.cancelBtn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: #e5e7eb;
+  cursor: pointer;
+  transition: background 0.12s ease, transform 0.12s ease;
+
+  &:hover {
+    background: #d1d5db;
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.saveBtn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: #2563eb;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.12s ease, transform 0.12s ease;
+
+  &:hover {
+    background: #1d4ed8;
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+/* ===== Sonner confirm toast (toast.custom) ===== */
+.toastConfirm {
+  width: 340px;
+  max-width: calc(100vw - 32px);
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 12px 14px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toastTitle {
+  font-size: 14px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.toastDesc {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.35;
+}
+
+.toastActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.toastCancel,
+.toastDelete {
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+.toastCancel {
+  background: #f3f4f6;
+  color: #111827;
+  border-color: #e5e7eb;
+
+  &:hover {
+    background: #e5e7eb;
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.toastDelete {
+  background: #dc2626;
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(220, 38, 38, 0.22);
+
+  &:hover {
+    background: #b91c1c;
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .modalOverlay,
+  .modal {
+    animation: none;
+  }
+}

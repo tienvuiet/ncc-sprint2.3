@@ -1,0 +1,329 @@
+.container {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.iconBlue {
+  width: 20px;
+  height: 20px;
+  color: #2563eb;
+}
+
+.iconSm {
+  width: 16px;
+  height: 16px;
+}
+
+.addBtn {
+  background: #2563eb;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    background: #1e4fc7;
+  }
+}
+
+/* Search */
+.searchBox {
+  position: relative;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 14px 10px 40px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 14px;
+
+  &:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.3);
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  width: 18px;
+  height: 18px;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Card */
+.card {
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  transition: 0.2s;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.4;
+}
+
+.cardDate {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cardActions {
+  display: flex;
+  justify-content: space-between;
+}
+.cardBtns {
+  display: flex;
+  gap: 8px;
+}
+
+.editBtn {
+  padding: 6px 12px;
+  font-size: 13px;
+  background: #fef3c7;
+  color: #b45309;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    background: #fde68a;
+  }
+}
+
+.deleteBtn {
+  padding: 6px 12px;
+  font-size: 13px;
+  background: #fee2e2;
+  color: #dc2626;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    background: #fecaca;
+  }
+}
+
+/* Empty */
+.empty {
+  text-align: center;
+  padding: 40px 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  color: #6b7280;
+  grid-column: 1 / -1;
+}
+
+/* Pagination */
+.paginationRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.paginationInfo {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.paginationBtns {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pageBtn {
+  padding: 6px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    background: #f3f4f6;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.pageActive {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+/* Modal */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  width: 380px;
+  background: white;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modalTitle {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  label {
+    font-size: 14px;
+    color: #6b7280;
+  }
+}
+
+.modalInput {
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  &:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.3);
+  }
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.cancelBtn {
+  padding: 8px 16px;
+  background: #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background: #d1d5db;
+  }
+}
+
+.saveBtn {
+  padding: 8px 16px;
+  background: #2563eb;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background: #1e4fc7;
+  }
+}
+
+/* ===== FIX CKEDITOR MODAL OVERFLOW ===== */
+.modal {
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+.modalBody {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* CKEditor height fix */
+.ck-editor__editable {
+  min-height: 150px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* giữ nút luôn nhìn thấy */
+.modalActions {
+  position: sticky;
+  bottom: 0;
+  background: white;
+  padding-top: 12px;
+}

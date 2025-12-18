@@ -1,0 +1,85 @@
+.festivalPage {
+  width: 100%;
+  background: #0b0d13;
+  color: #ffffff;
+  padding: 30px 0;
+}
+
+/* ------------ CONTENT TEXT --------------- */
+.contentWrapper {
+  max-width: 95%;
+  margin: 0 auto;
+  padding: 0 16px;
+
+  .title {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+
+  .desc {
+    margin-bottom: 14px;
+    line-height: 1.55;
+    font-size: 15px;
+    opacity: 0.85;
+  }
+}
+
+/* ------------ BANNER IMAGE --------------- */
+.banner {
+  margin: 30px auto;
+
+  img {
+    width: 95%;
+    height: 100%;
+    border-radius: 4px;
+    object-fit: cover;
+    margin: 0px 50px;
+  }
+}
+
+/* ------------ SCHEDULE POSTER ------------- */
+.scheduleImg {
+ margin: 30px auto;
+
+  img {
+    width: 95%;
+    height: 100%;
+    border-radius: 4px;
+    object-fit: cover;
+    margin: 0px auto;
+  }
+}
+
+/* ------------ RESPONSIVE ----------------- */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .contentWrapper {
+    .title {
+      font-size: 22px;
+    }
+
+    .desc {
+      font-size: 14px;
+    }
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .festivalPage {
+    padding: 20px 0;
+  }
+
+  .contentWrapper {
+    .title {
+      font-size: 20px;
+    }
+  }
+
+  .banner img,
+  .scheduleImg img {
+    border-radius: 6px;
+  }
+}

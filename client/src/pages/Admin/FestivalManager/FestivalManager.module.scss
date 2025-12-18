@@ -1,0 +1,756 @@
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+.titleIcon {
+  width: 24px;
+  height: 24px;
+  color: #2563eb;
+}
+
+.addBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: #2563eb;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25);
+  transition: transform 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
+}
+
+.addBtn:hover {
+  background: #1d4ed8;
+}
+
+.addBtn:active {
+  transform: translateY(1px);
+}
+
+.btnIcon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Search */
+.searchWrap {
+  position: relative;
+}
+
+.searchIcon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 16px 10px 40px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  transition: box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.searchInput:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+/* Table */
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.thead {
+  background: #f9fafb;
+  color: #4b5563;
+  font-size: 14px;
+}
+
+.th,
+.td {
+  padding: 12px 24px;
+  text-align: left;
+}
+
+.tbody {
+  border-top: 1px solid #e5e7eb;
+}
+
+.tr {
+  border-top: 1px solid #e5e7eb;
+  transition: background 0.12s ease;
+}
+
+.tr:hover {
+  background: #f9fafb;
+}
+
+/* ===== Column widths (đã bỏ cột ngày diễn ra) ===== */
+.thImage,
+.tdImage {
+  width: 130px;
+}
+
+.thActions {
+  width: 160px;
+  text-align: center;
+}
+
+.thCreated,
+.tdCreated {
+  width: 190px;
+  min-width: 190px;
+}
+
+.thName {
+  width: 28%;
+}
+
+.thDesc {
+  width: auto;
+}
+
+/* Header "Ngày tạo bài" + icon không bị wrap */
+.thCreated {
+  white-space: nowrap;
+}
+
+.thInline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.thIcon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+/* Cells */
+.tdName {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tdDesc {
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tdCreated {
+  white-space: nowrap;
+  font-size: 13px;
+  color: #111827;
+  font-variant-numeric: tabular-nums;
+}
+
+.tdActions {
+  text-align: center;
+}
+
+.actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Icon buttons */
+.iconBtn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+}
+
+.iconBtn:active {
+  transform: translateY(1px);
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+.editBtn {
+  background: #fef3c7;
+  color: #a16207;
+}
+
+.editBtn:hover {
+  background: #fde68a;
+}
+
+.deleteBtn {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.deleteBtn:hover {
+  background: #fecaca;
+}
+
+.empty {
+  text-align: center;
+  padding: 24px;
+  color: #6b7280;
+}
+
+/* Images */
+.thumb {
+  width: 90px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+}
+
+.thumbPlaceholder {
+  width: 90px;
+  height: 56px;
+  border-radius: 10px;
+  border: 1px dashed #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  background: #fafafa;
+}
+
+.placeholderIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.preview {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.pageInfo {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.pager {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagerBtn,
+.pageBtn {
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.12s ease, transform 0.12s ease;
+}
+
+.pagerBtn:hover,
+.pageBtn:hover {
+  background: #f3f4f6;
+}
+
+.pagerBtn:active,
+.pageBtn:active {
+  transform: translateY(1px);
+}
+
+.pagerBtn:disabled,
+.pageBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.active {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+
+.active:hover {
+  background: #1d4ed8;
+}
+
+.textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  outline: none;
+ resize: none;        /* ❌ không cho kéo tay */
+  overflow: hidden;    
+}
+.textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+/* ===================== MODAL (with open animation) ===================== */
+@keyframes overlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 16px;
+
+  /* ✅ hiệu ứng mở */
+  animation: overlayIn 160ms ease-out both;
+}
+
+.modal {
+  width: 400px;
+  max-width: 100%;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-height: calc(100vh - 80px);
+  animation: modalIn 180ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  transform-origin: top center;
+  will-change: transform, opacity;
+}
+
+.modalTitle {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.form {
+  flex: 1;
+  overflow-y: auto;
+  position: relative;
+
+  /* Firefox */
+  scrollbar-width: none;
+
+  /* Edge cũ */
+  -ms-overflow-style: none;
+}
+
+/* Chrome / Safari / Edge */
+.form::-webkit-scrollbar {
+  width: 0;
+  /* ❌ ẩn hoàn toàn */
+  height: 0;
+}
+
+/* ===================== HOVER → HIỆN MINI SCROLL ===================== */
+.form:hover {
+  scrollbar-width: thin;
+  /* Firefox */
+}
+
+.form:hover::-webkit-scrollbar {
+  width: 6px;
+  /* mini */
+}
+
+.form:hover::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.form:hover::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: 8px;
+}
+
+/* hover thumb */
+.form:hover::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+
+.label {
+  font-size: 13px;
+  color: #4b5563;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  transition: box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+.input:disabled {
+  background: #f3f4f6;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 6px;
+}
+
+.cancelBtn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: #e5e7eb;
+  cursor: pointer;
+  transition: background 0.12s ease, transform 0.12s ease;
+}
+
+.cancelBtn:hover {
+  background: #d1d5db;
+}
+
+.cancelBtn:active {
+  transform: translateY(1px);
+}
+
+.saveBtn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: #2563eb;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.12s ease, transform 0.12s ease;
+}
+
+.saveBtn:hover {
+  background: #1d4ed8;
+}
+
+.saveBtn:active {
+  transform: translateY(1px);
+}
+
+/* tôn trọng người dùng giảm chuyển động */
+@media (prefers-reduced-motion: reduce) {
+
+  .modalOverlay,
+  .modal {
+    animation: none;
+  }
+}
+
+/* ===================== Sonner confirm toast (toast.custom) ===================== */
+.toastConfirm {
+  width: 340px;
+  max-width: calc(100vw - 32px);
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 12px 14px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toastTitle {
+  font-size: 14px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.toastDesc {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.35;
+}
+
+.toastActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.toastCancel,
+.toastDelete {
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+.toastCancel {
+  background: #f3f4f6;
+  color: #111827;
+  border-color: #e5e7eb;
+}
+
+.toastCancel:hover {
+  background: #e5e7eb;
+}
+
+.toastCancel:active {
+  transform: translateY(1px);
+}
+
+.toastDelete {
+  background: #dc2626;
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(220, 38, 38, 0.22);
+}
+
+.toastDelete:hover {
+  background: #b91c1c;
+}
+
+.toastDelete:active {
+  transform: translateY(1px);
+}
+
+
+/* ===================== CKEDITOR CUSTOM ===================== */
+
+/* Bọc editor cho gọn */
+.ck-editor {
+  border-radius: 12px;
+}
+
+/* Khung editor */
+.ck.ck-editor__main>.ck-editor__editable {
+  min-height: 180px;
+  max-height: 320px;
+  overflow-y: auto;
+
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  padding: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Focus giống input */
+.ck.ck-editor__main>.ck-editor__editable:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+  outline: none;
+}
+
+/* Toolbar */
+.ck.ck-toolbar {
+  border-radius: 12px 12px 0 0;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+}
+
+/* Bỏ border trùng */
+.ck.ck-editor__main {
+  border: none;
+}
+
+/* Nội dung bên trong */
+.ck-content p {
+  margin: 0 0 8px;
+}
+
+.ck-content h1,
+.ck-content h2,
+.ck-content h3 {
+  font-weight: 700;
+  margin: 12px 0 8px;
+}
+
+.ck-content ul,
+.ck-content ol {
+  padding-left: 20px;
+}
+
+/* Scrollbar đẹp hơn */
+.ck-editor__editable::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ck-editor__editable::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 8px;
+}
+
+.ck-editor__editable::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .ck.ck-editor__main>.ck-editor__editable {
+    min-height: 140px;
+  }
+}
+
+
+/* ===================== CKEDITOR (CSS MODULE SAFE) ===================== */
+
+.editorWrap {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* toolbar */
+:global(.ck.ck-toolbar) {
+  border: 1px solid #d1d5db;
+  border-bottom: none;
+  border-radius: 12px 12px 0 0;
+  background: #f9fafb;
+}
+
+/* editable area */
+:global(.ck.ck-editor__editable) {
+  min-height: 200px;
+  max-height: 360px;
+  overflow-y: auto;
+
+  border: 1px solid #d1d5db;
+  border-radius: 0 0 12px 12px;
+  padding: 12px;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* focus giống input */
+:global(.ck.ck-editor__editable:focus) {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+  outline: none;
+}
+
+/* nội dung bên trong */
+:global(.ck-content p) {
+  margin: 0 0 8px;
+}
+
+:global(.ck-content h1),
+:global(.ck-content h2),
+:global(.ck-content h3) {
+  font-weight: 700;
+  margin: 12px 0 8px;
+}
+
+:global(.ck-content ul),
+:global(.ck-content ol) {
+  padding-left: 20px;
+}
+
+/* scrollbar */
+:global(.ck-editor__editable::-webkit-scrollbar) {
+  width: 8px;
+}
+
+:global(.ck-editor__editable::-webkit-scrollbar-thumb) {
+  background: #d1d5db;
+  border-radius: 8px;
+}
+
+:global(.ck-editor__editable::-webkit-scrollbar-thumb:hover) {
+  background: #9ca3af;
+}

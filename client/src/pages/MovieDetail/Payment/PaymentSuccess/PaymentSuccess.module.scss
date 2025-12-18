@@ -1,0 +1,121 @@
+.successWrapper {
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+  background: #0b0d13;
+}
+
+.successBox {
+  text-align: center;
+  color: white;
+  width: 100%;
+  max-width: 500px;
+  padding: 0 20px;
+}
+
+/* ===========================
+   ICON
+============================== */
+.starIcon {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  background-image: url("https://cdn-icons-png.flaticon.com/512/1828/1828884.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* ===========================
+   TEXT
+============================== */
+.successTitle {
+  margin-top: 20px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.successNote {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #cccccc;
+}
+
+.highlight {
+  color: #ffb03a;
+  font-weight: bold;
+}
+
+/* ===========================
+   BUTTON
+============================== */
+.homeBtn {
+  margin-top: 25px;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  width: 210px;
+  background: linear-gradient(90deg, #ff4e4e, #cf2323);
+  transition: 0.2s;
+}
+
+.homeBtn:hover {
+  transform: scale(1.04);
+}
+
+/* ===========================
+   RESPONSIVE — TABLET
+   (≈ 768px)
+============================== */
+@media (max-width: 992px) {
+  .successWrapper {
+    padding-top: 40px;
+  }
+
+  .starIcon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .successTitle {
+    font-size: 24px;
+  }
+
+  .successNote {
+    font-size: 15px;
+  }
+}
+
+/* ===========================
+   RESPONSIVE — MOBILE
+   (≈ 480px)
+============================== */
+@media (max-width: 576px) {
+  .successWrapper {
+    padding-top: 30px;
+  }
+
+  .starIcon {
+    width: 90px;
+    height: 90px;
+  }
+
+  .successTitle {
+    font-size: 22px;
+  }
+
+  .successNote {
+    font-size: 14px;
+  }
+
+  .homeBtn {
+    width: 80%;
+    font-size: 15px;
+    padding: 10px 25px;
+  }
+}
