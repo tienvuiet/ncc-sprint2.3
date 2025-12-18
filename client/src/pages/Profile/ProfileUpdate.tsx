@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+ import React, { useEffect, useState } from "react";
 import { Upload } from "lucide-react";
 import { toast } from "sonner";
 import axiosClient from "../../apis/axiosClient";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   onUpdateSuccess?: (user: any) => void;
@@ -19,19 +20,13 @@ export default function ProfileUpdate({ onUpdateSuccess }: Props) {
 
   const [openChangePassword, setOpenChangePassword] = useState(false);
 
+  const navigate = useNavigate();
+
   const [passwordForm, setPasswordForm] = useState({
     currentPassword: "",
     newPassword: "",
     confirmPassword: "",
   });
-
-  if (!userState) {
-    return (
-      <div className="text-center text-white/60 py-20">
-        Vui lòng đăng nhập để xem thông tin tài khoản
-      </div>
-    );
-  }
 
   /* =======================
         FORM STATE
@@ -59,9 +54,16 @@ export default function ProfileUpdate({ onUpdateSuccess }: Props) {
   const [loading, setLoading] = useState(false);
 
   /* =======================
-        INIT FROM USER
+       Effect
   ======================= */
   useEffect(() => {
+    if (!userState) {
+      navigate("/", { replace: true });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!userState) return;
     setFormData({
       firstName: userState.first_name || "",
       lastName: userState.last_name || "",
@@ -74,6 +76,46 @@ export default function ProfileUpdate({ onUpdateSuccess }: Props) {
     setAvatarUrl(avatar);
     setAvatarPreview(avatar);
   }, [userState]);
+
+  useEffect(() => {
+    const syncUser = () => {
+      const updatedUser = JSON.parse(
+        localStorage.getItem("currentUser") || "null"
+      );
+
+      if (!updatedUser) {
+        // RESET STATE
+        setUserState(null);
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          address: "",
+        });
+        setAvatarUrl("");
+        setAvatarPreview("");
+        setPasswordForm({
+          currentPassword: "",
+          newPassword: "",
+          confirmPassword: "",
+        });
+        setOpenChangePassword(false);
+
+        // ĐÁ KHỎI TRANG PROFILE
+        navigate("/", { replace: true });
+        return;
+      }
+
+      setUserState(updatedUser);
+    };
+
+    window.addEventListener("user-updated", syncUser);
+
+    return () => {
+      window.removeEventListener("user-updated", syncUser);
+    };
+  }, [navigate]);
 
   /* =======================
         HANDLERS
@@ -154,6 +196,8 @@ export default function ProfileUpdate({ onUpdateSuccess }: Props) {
       setLoading(false);
     }
   };
+
+  if (!userState) return null;
 
   /* =======================
         RENDER
@@ -237,102 +281,101 @@ export default function ProfileUpdate({ onUpdateSuccess }: Props) {
         </button>
       </div>
       {openChangePassword && (
-  <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center">
-    <div className="w-full max-w-md bg-[#0b1220] rounded-xl p-6 relative">
-      {/* CLOSE */}
-      <button
-        onClick={() => setOpenChangePassword(false)}
-        className="absolute top-4 right-4 text-white/60 hover:text-white"
-      >
-        ✕
-      </button>
+        <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center">
+          <div className="w-full max-w-md bg-[#0b1220] rounded-xl p-6 relative">
+            {/* CLOSE */}
+            <button
+              onClick={() => setOpenChangePassword(false)}
+              className="absolute top-4 right-4 text-white/60 hover:text-white"
+            >
+              ✕
+            </button>
 
-      <h3 className="text-lg font-semibold text-white mb-6">
-        Đổi mật khẩu
-      </h3>
+            <h3 className="text-lg font-semibold text-white mb-6">
+              Đổi mật khẩu
+            </h3>
 
-      <div className="space-y-4">
-        <input
-          type="password"
-          name="currentPassword"
-          placeholder="Mật khẩu hiện tại"
-          value={passwordForm.currentPassword}
-          onChange={handlePasswordChange}
-          className="w-full px-4 py-3 rounded-lg bg-[#0f1623] text-white border border-white/10 outline-none"
-        />
+            <div className="space-y-4">
+              <input
+                type="password"
+                name="currentPassword"
+                placeholder="Mật khẩu hiện tại"
+                value={passwordForm.currentPassword}
+                onChange={handlePasswordChange}
+                className="w-full px-4 py-3 rounded-lg bg-[#0f1623] text-white border border-white/10 outline-none"
+              />
 
-        <input
-          type="password"
-          name="newPassword"
-          placeholder="Mật khẩu mới"
-          value={passwordForm.newPassword}
-          onChange={handlePasswordChange}
-          className="w-full px-4 py-3 rounded-lg bg-[#0f1623] text-white border border-white/10 outline-none"
-        />
+              <input
+                type="password"
+                name="newPassword"
+                placeholder="Mật khẩu mới"
+                value={passwordForm.newPassword}
+                onChange={handlePasswordChange}
+                className="w-full px-4 py-3 rounded-lg bg-[#0f1623] text-white border border-white/10 outline-none"
+              />
 
-        <input
-          type="password"
-          name="confirmPassword"
-          placeholder="Xác nhận mật khẩu mới"
-          value={passwordForm.confirmPassword}
-          onChange={handlePasswordChange}
-          className="w-full px-4 py-3 rounded-lg bg-[#0f1623] text-white border border-white/10 outline-none"
-        />
-      </div>
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder="Xác nhận mật khẩu mới"
+                value={passwordForm.confirmPassword}
+                onChange={handlePasswordChange}
+                className="w-full px-4 py-3 rounded-lg bg-[#0f1623] text-white border border-white/10 outline-none"
+              />
+            </div>
 
-      <button
-        onClick={async () => {
-          // ===== VALIDATE =====
-          if (
-            !passwordForm.currentPassword ||
-            !passwordForm.newPassword ||
-            !passwordForm.confirmPassword
-          ) {
-            toast.error("Vui lòng nhập đầy đủ thông tin");
-            return;
-          }
+            <button
+              onClick={async () => {
+                // ===== VALIDATE =====
+                if (
+                  !passwordForm.currentPassword ||
+                  !passwordForm.newPassword ||
+                  !passwordForm.confirmPassword
+                ) {
+                  toast.error("Vui lòng nhập đầy đủ thông tin");
+                  return;
+                }
 
-          if (passwordForm.currentPassword !== userState.password) {
-            toast.error("Mật khẩu hiện tại không đúng");
-            return;
-          }
+                if (passwordForm.currentPassword !== userState.password) {
+                  toast.error("Mật khẩu hiện tại không đúng");
+                  return;
+                }
 
-          if (passwordForm.newPassword !== passwordForm.confirmPassword) {
-            toast.error("Xác nhận mật khẩu không khớp");
-            return;
-          }
+                if (passwordForm.newPassword !== passwordForm.confirmPassword) {
+                  toast.error("Xác nhận mật khẩu không khớp");
+                  return;
+                }
 
-          try {
-            const res = await axiosClient.patch(`/users/${userState.id}`, {
-              password: passwordForm.newPassword,
-            });
+                try {
+                  const res = await axiosClient.patch(
+                    `/users/${userState.id}`,
+                    {
+                      password: passwordForm.newPassword,
+                    }
+                  );
 
-            localStorage.setItem(
-              "currentUser",
-              JSON.stringify(res.data)
-            );
-            setUserState(res.data);
+                  localStorage.setItem("currentUser", JSON.stringify(res.data));
+                  setUserState(res.data);
 
-            toast.success("Đổi mật khẩu thành công");
-            setOpenChangePassword(false);
+                  toast.success("Đổi mật khẩu thành công");
+                  setOpenChangePassword(false);
 
-            setPasswordForm({
-              currentPassword: "",
-              newPassword: "",
-              confirmPassword: "",
-            });
-          } catch {
-            toast.error("Đổi mật khẩu thất bại");
-          }
-        }}
-        className="mt-6 w-full py-3 rounded-full bg-gradient-to-r from-red-600 to-red-500 text-white font-medium"
-      >
-        Xác nhận
-      </button>
-    </div>
-  </div>
-)}
-
+                  setPasswordForm({
+                    currentPassword: "",
+                    newPassword: "",
+                    confirmPassword: "",
+                  });
+                } catch {
+                  toast.error("Đổi mật khẩu thất bại");
+                }
+              }}
+              className="mt-6 w-full py-3 rounded-full bg-gradient-to-r from-red-600 to-red-500 text-white font-medium"
+            >
+              Xác nhận
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

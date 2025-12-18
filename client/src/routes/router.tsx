@@ -30,6 +30,7 @@ import PaymentSuccess from "../pages/MovieDetail/Payment/PaymentSuccess/PaymentS
 import ProfileLayout from "../pages/Profile/ProfileLayout";
 import ProfileUpdate from "../pages/Profile/ProfileUpdate";
 import PromotionDetailPage from "../pages/Promotions/PromotionDetail/PromotionDetailPage";
+import HistoryPayment from "../pages/Profile/HistoryPayment";
 
 
 export const router = createBrowserRouter([
@@ -70,8 +71,8 @@ export const router = createBrowserRouter([
         element: <ProfileLayout />,
         children: [
           { index: true, element: <ProfileUpdate /> },
-          { path: "membership", element: <div>Membership</div> },
-          { path: "orders", element: <div>Orders</div> },
+          { path: "historyPayment", element: <HistoryPayment/> },
+
           { path: "points", element: <div>Points</div> },
         ],
       },

@@ -73,7 +73,7 @@ export default function AdminLayout() {
           {open && <h2 className="text-xl font-bold">🎬 Manager Cinema</h2>}
           <button
             onClick={() => setOpen(!open)}
-            className="p-2 hover:bg-gray-700 rounded"
+            className="p-2 hover:bg-gray-700 rounded cursor-pointer"
           >
             {open ? <X /> : <Menu />}
           </button>

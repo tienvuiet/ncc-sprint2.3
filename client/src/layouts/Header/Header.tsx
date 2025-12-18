@@ -72,6 +72,7 @@ const Header: React.FC = () => {
           <button
             onClick={() => {
               localStorage.removeItem("currentUser");
+              window.dispatchEvent(new Event("user-updated"));
               setUser(null);
               setIsDropdownOpen(false);
               toast.dismiss(t);

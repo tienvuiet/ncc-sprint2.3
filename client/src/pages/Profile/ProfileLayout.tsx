@@ -2,7 +2,7 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const tabs = [
   { label: "Tài khoản của tôi", path: "" },
-  { label: "Lịch sử mua vé", path: "orders" },
+  { label: "Lịch sử mua vé", path: "historyPayment" },
   { label: "Phim yêu thích", path: "points" },
 ];
 
